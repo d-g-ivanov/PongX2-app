@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Pong!</title>
+	
+	<meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+	
+	<link rel="shortcut icon" type="image/png" href="images/logo/pong.png"/>
+	<link rel="stylesheet" type="text/css" href="css/reset.css" />
+	<link rel="stylesheet" type="text/css" href="css/fonts.css" />
+	<link rel="stylesheet" type="text/css" href="css/screens.css" />
+	<link rel="stylesheet" type="text/css" href="css/checkboxes.css" />
+	<link rel="stylesheet" type="text/css" href="css/player_settings.css" />
+	<link rel="stylesheet" type="text/css" href="css/gameover_screen.css" />
+	<link rel="stylesheet" type="text/css" href="css/console.css" />
+	<style type="text/css">
+/*test css goes here*/
+
+	</style>
+</head>
+<body>
+
+	<div class="screen loadingScreen active">
+		<div class="screenContent">
+			<div class="logo">
+				<img alt="logo" src="images/loading/games4two_v2.png" />
+			</div>
+			<div class="loader">
+				<div class="wall top"></div>
+				<div class="wall right"></div>
+				<div class="wall bottom"></div>
+				<div class="wall left"></div>
+			</div>
+			<div class='text-contents'>
+				<p>presents</p>
+				<h3>Pong X Two</h3>
+			</div>
+		</div>
+	</div>
+
+	<div id="game">
+		<div class="screen startScreen active" data-place='0'>
+			<div class="screenContent menuGroup-btn brown">
+				<img src='images/pong_cup.png' alt='pong cup' />
+				<button type="button" data-where="gameScreen" data-action="toggleClassic">Pong x2</button>
+				<button type="button" data-where="gameScreen" data-action="toggleClassic">Pong x2 Classic</button>
+				<button type="button" data-where="instructionsScreen">Instructions</button>
+				<button type="button" data-where="settingsScreen">Settings</button>
+				<button type="button" data-where="adsScreen">Help us by watchig some ads</button>
+				<button type="button" data-where="creditsScreen">Credits</button>
+			</div>
+		</div>
+		<div class="screen instructionsScreen" data-place='1'>
+			<div class="screenContent menuGroup-btn brown">
+				<p>An oldie, but a goodie. And just as the classic, you may enjoy it with a friend!</p>
+				<p>Travel back in time to enjoy the simple graphics of one of the first games ever made.</p>
+				<p>Pong is a 2-dimensional simulation of (table) tennis. You and your opponent share a phone to each control an in-game paddle by moving it horizontally (and vertically, if you'd like) across the screen. You use the paddles to hit a ball back and forth. The aim is for each player to reach eleven points (default, but you can change that) before the opponent does; points are earned when one fails to return the ball to the other.</p>
+				<p>Check out the settings area for some personalization fun and extra fine-tuning.</p>				
+				<button type="button" data-where="startScreen">Back to Main Menu</button>
+			</div>
+		</div>
+		<div class="screen settingsScreen" data-place='1'>
+			<div class="screenContent menuGroup-btn brown">
+				<h2>Players</h2>
+				<span class="group" data-paddle="0">Player 1: 
+					<div class="player_settings" data-setting="paddleColors">
+						<div class="menu_button colors"></div>
+						<ul class="swatches color_palette">
+							<li data-data="red" style="background-color: red;"></li>
+							<li data-data="#ffbf00" style="background-color: #ffbf00;"></li>
+							<li data-data="#80ff00" style="background-color: #80ff00;"></li>
+							<li data-data="#00ff40" style="background-color: #00ff40;"></li>
+							<li data-data="cyan" style="background-color: cyan;"></li>
+							<li data-data="#0040ff" style="background-color: #0040ff;"></li>
+							<li data-data="#8000ff" style="background-color: #8000ff;"></li>
+							<li data-data="#ff00bf" style="background-color: #ff00bf;"></li>
+						</ul>
+					</div>
+				</span>
+				<br>
+				<span class="group" data-paddle="1">Player 2: 
+					<div class="player_settings" data-setting="paddleColors">
+						<div class="menu_button colors"></div>
+						<ul class="swatches color_palette">
+							<li data-data="red" style="background-color: red;"></li>
+							<li data-data="#ffbf00" style="background-color: #ffbf00;"></li>
+							<li data-data="#80ff00" style="background-color: #80ff00;"></li>
+							<li data-data="#00ff40" style="background-color: #00ff40;"></li>
+							<li data-data="cyan" style="background-color: cyan;"></li>
+							<li data-data="#0040ff" style="background-color: #0040ff;"></li>
+							<li data-data="#8000ff" style="background-color: #8000ff;"></li>
+							<li data-data="#ff00bf" style="background-color: #ff00bf;"></li>
+						</ul>
+					</div>
+				</span>
+				
+				<h2>Modes</h2>
+				<div class='numbers'>
+					<div> <span data-step='-1'>-</span> <input type='number' id='winPoints' value='11' readonly  /> <span data-step='1'>+</span> </div>
+					<label for='winPoints'>points to win the game</label>
+				</div>
+				
+				<input type='checkbox' id='balls' value='balls' class="css-checkbox" />
+				<label for='balls' class="css-label"><div>
+					<h3>Balls</h3>
+					<p>Include another ball to the game to make it more fun and challenging.</p>
+				</div></label>
+		
+				<input type='checkbox' id='powerups' value='powerups' class="css-checkbox" />
+				<label for='powerups' class="css-label"><div>
+					<h3>Power-ups</h3>
+					<p>Randomly add a power-up or power-down elements to boost or lower your game. You will have to learn on your own what is what.</p>
+				</div></label>
+				
+				<h2>Game field</h2>
+				<div class="radio_types">
+					<input type="radio" name="consoletype" id="typeA" value="typeA" checked />
+						<label class="types" for="typeA">Buttons on top and bottom<img src="images/typeA.png" alt="typeA" /></label>
+
+					<input type="radio" name="consoletype" id="typeB" value="typeB" class="types" />
+						<label class="types" for="typeB">Buttons on left and right<img src="images/typeB.png" alt="typeB" /></label>
+				</div>
+				
+				<button type="button" data-where="startScreen">Back to Main Menu</button>
+			</div>
+
+		</div>
+		<div class="screen adsScreen">
+			<div class="screenContent menuGroup-btn brown">
+				<p>Thank you for your help! Please check out some ads and who knows... you might even find something you like.</p>
+				<br>
+				<button type="button" data-action="prepInterstitial">View Ad</button>
+				<!--<button type="button" data-action="prepVideo">Show me a video ad</button>-->
+				<br><br><br>
+				<button type="button" data-where="startScreen">Back to Main Menu</button>
+			</div>
+		</div>
+		<div class="screen creditsScreen" data-place='1'>
+			<div class="screenContent menuGroup-btn brown">
+				<p>Background image:<br><a href="https://www.vexels.com/vectors/preview/71153/football-crowds-in-bleachers">Football crowds in bleachers</a> | Designed by Vexels</p>
+				<p>Start screen cup image:<br><a href="http://www.freepik.com/free-vector/golden-cup-badge_719924.htm">Golden cup badge</a>  | Designed by Freepik</p>
+				<p>Game over background image:<br><a href='http://www.freepik.com/free-photo/blackboard-texture_974118.htm'>Chalkboard</a> | Designed by Freepik</p>
+				<p>Background music and SFX:<br>“8-Bit Puzzler” by Eric Matyas, www.soundimage.org.</p>
+				<p>Buttons:<br>Sound effects obtained from http://www.freesfx.co.uk.</p>
+				<button type="button" data-where="startScreen">Back to Main Menu</button>
+			</div>
+		</div>
+		<div class="screen gameOver" data-place='1'>
+			<div class="screenContent">
+				<div class="summary">
+					<p class="game_text">Awesome match. Check out the stats!</p>
+					
+					<div class="general-stats">
+						<p class="time_played">Time Played: <br> <span class="result">00:00:00</span></p>
+						<p class="final_score">Final Score: <br> <span class="result">0 : 0</span></p>
+					</div>
+				</div>
+				
+				<div class="menuGroup-btn brown">
+					<!--<button type="button" data-action="toggleScoreDetails">Details</button>-->
+					<button type="button" data-where="gameScreen">Play Again</button>
+					<button type="button" data-where="startScreen">Menu</button>
+				</div>
+			</div>
+		</div>
+		<div class="screen gameScreen" data-place='2'>
+			<canvas>
+				<div id="unsupported">
+					Sorry, this example cannot be run because your browser does not support the &lt;canvas&gt; element
+				</div>
+			</canvas>
+			<button id='start' type="button" data-action="startGame">Start</button>
+			<div id="paddle1" class="playerGroup-btn typeA">
+				<button type="button" data-direction="goingLeft"><svg viewBox="0 0 512 512" xml:space="preserve"><g><path d="M144,124.9L353.8,256L144,387.1V124.9 M128,96v320l256-160L128,96L128,96z"/></g></svg></button> <!-- left -->
+				<button type="button" data-direction="goingRight"><svg viewBox="0 0 512 512" xml:space="preserve"><g><path d="M144,124.9L353.8,256L144,387.1V124.9 M128,96v320l256-160L128,96L128,96z"/></g></svg></button> <!-- right -->
+				<button type="button" class="menu_icon" data-action="displaySubmenu"><span><span></span><span></span><span></span></span></button>
+				<button type="button" data-direction="goingDown"><svg viewBox="0 0 512 512" xml:space="preserve"><g><path d="M144,124.9L353.8,256L144,387.1V124.9 M128,96v320l256-160L128,96L128,96z"/></g></svg></button> <!-- down -->
+				<button type="button" data-direction="goingUp"><svg viewBox="0 0 512 512" xml:space="preserve"><g><path d="M144,124.9L353.8,256L144,387.1V124.9 M128,96v320l256-160L128,96L128,96z"/></g></svg></button> <!-- up -->
+			</div>
+			<div id="paddle2" class="playerGroup-btn typeA">
+				<button type="button" data-direction="goingDown"><svg viewBox="0 0 512 512" xml:space="preserve"><g><path d="M144,124.9L353.8,256L144,387.1V124.9 M128,96v320l256-160L128,96L128,96z"/></g></svg></button> <!-- up -->
+				<button type="button" data-direction="goingUp"><svg viewBox="0 0 512 512" xml:space="preserve"><g><path d="M144,124.9L353.8,256L144,387.1V124.9 M128,96v320l256-160L128,96L128,96z"/></g></svg></button> <!-- down -->
+				<button type="button" class="menu_icon" data-action="displaySubmenu"><span><span></span><span></span><span></span></span></button>
+				<button type="button" data-direction="goingLeft"><svg viewBox="0 0 512 512" xml:space="preserve"><g><path d="M144,124.9L353.8,256L144,387.1V124.9 M128,96v320l256-160L128,96L128,96z"/></g></svg></button> <!-- right -->
+				<button type="button" data-direction="goingRight"><svg viewBox="0 0 512 512" xml:space="preserve"><g><path d="M144,124.9L353.8,256L144,387.1V124.9 M128,96v320l256-160L128,96L128,96z"/></g></svg></button> <!-- left -->
+			</div>
+			
+			
+			
+			
+			<div class="submenu">
+				<div class="screenContent menuGroup-btn green">
+					<button type="button" data-action="resumeGame">Resume</button>
+					<button type="button" data-action="restartGame">Restart</button>
+					<button type="button" data-where="startScreen">Back to Main Menu</button>
+				</div>
+			</div>
+		</div>
+		<div class="topbar">
+			<input type="checkbox" name="sound" id="sound" value="on">
+			<label for="sound"><div></div></label>
+		</div>
+	</div>
+	
+	
+	<audio id="background_sound" loop>
+		<source src="audio/background.ogg" type="audio/ogg">
+		<source src="audio/background.mp3" type="audio/mpeg">
+	</audio>
+	<audio id="button_press">
+		<source src="audio/button.wav" type="audio/wav">
+	</audio>
+	<audio id="paddle_bounce">
+		<source src="audio/pong.wav" type="audio/wav">
+	</audio>
+	<audio id="wall_bounce">
+		<source src="audio/wall.wav" type="audio/wav">
+	</audio>
+	
+	
+	<script type="text/javascript" src="cordova.js"></script>
+	<script src="js\ads.js"></script>
+	
+	<script src="js\utils.js"></script>
+	<script src="js\tap.js"></script>
+	
+	<script src="js\parts.js"></script>
+	<script src="js\events.js"></script>
+	<script src="js\game.js"></script>
+	<script>
+		window.onload = function() {
+			//set canvas
+			activate_canvas(settings.console);
+			//remove loading screen
+			setTimeout(function(){
+				//goto('startScreen');
+				var loading = document.querySelector('.loadingScreen');
+				var game = document.querySelector('#game');
+				loading.classList.remove('active');
+				//loading.style.transform = 'translateX(-100%)';
+			}, 5000);
+		}
+		
+		document.body.style.width = window.innerWidth + "px";
+		document.body.style.height = window.innerHeight + "px";
+		
+		window.onresize = function(event) {
+			document.body.style.width = window.innerWidth + "px";
+			document.body.style.height = window.innerHeight + "px";
+		};
+
+		//slider functionality
+		var screens = document.querySelectorAll('#game .screen');
+		var screenwidthcss = screens[0].style.width;
+		var screenwidth = screens[0].getBoundingClientRect().width;
+		//translate screens in a row
+		screens.forEach(function(screen, i){
+			screen.style.transform = 'translate3d(' + ( parseInt( screen.getAttribute('data-place') ) * 100) + "%, 0, 0)";
+		});
+	</script>
+</body>
+</html>

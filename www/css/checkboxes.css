@@ -1,0 +1,66 @@
+/* CHECKBOXES */
+input[type=checkbox].css-checkbox {
+	position:absolute; z-index:-1000; left:-1000px; overflow: hidden; clip: rect(0 0 0 0); height:1px; width:1px; margin:-1px; padding:0; border:0;
+}
+
+label {position: relative; -webkit-transition: all 0.3s linear; transition: all 0.3s linear; -webkit-backface-visibility: hidden; -moz-backface-visibility:hidden; -ms-backface-visibility:hidden;}
+
+label h3 {position: relative; margin-bottom: 15px; font-size: 50px; padding-left:55px; padding-bottom: 5px;}
+
+.screenContent label p {font-size:40px; margin: 0;}
+
+input[type=checkbox].css-checkbox + label.css-label {
+	/*padding-left:55px;*/
+	display:inline-block;
+	line-height:40px;
+	background-repeat:no-repeat;
+	background-position: 0 0;
+	background-size: 42px 42px;
+	vertical-align:middle;
+	cursor:pointer;
+	
+	margin-bottom: 2em;
+}
+
+input[type=checkbox].css-checkbox + label.css-label:last-of-type {
+	margin-bottom: 0;
+}
+
+input[type=checkbox].css-checkbox:checked + label.css-label {
+	background-image:url('data:image/svg+xml;utf8,<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 32 32" class="true_icon"><path fill="#005925" d="M27 4l-15 15-7-7-5 5 12 12 20-20z" /></svg>'/*../images/checked.png*/);
+	-webkit-transform: scale(1.05);transform: scale(1.05);
+}
+
+label.css-label {
+	background-image:url('data:image/svg+xml;utf8,<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 32 32" class="true_icon"><path fill="#e74c3c" d="M31.708 25.708c-0-0-0-0-0-0l-9.708-9.708 9.708-9.708c0-0 0-0 0-0 0.105-0.105 0.18-0.227 0.229-0.357 0.133-0.356 0.057-0.771-0.229-1.057l-4.586-4.586c-0.286-0.286-0.702-0.361-1.057-0.229-0.13 0.048-0.252 0.124-0.357 0.228 0 0-0 0-0 0l-9.708 9.708-9.708-9.708c-0-0-0-0-0-0-0.105-0.104-0.227-0.18-0.357-0.228-0.356-0.133-0.771-0.057-1.057 0.229l-4.586 4.586c-0.286 0.286-0.361 0.702-0.229 1.057 0.049 0.13 0.124 0.252 0.229 0.357 0 0 0 0 0 0l9.708 9.708-9.708 9.708c-0 0-0 0-0 0-0.104 0.105-0.18 0.227-0.229 0.357-0.133 0.355-0.057 0.771 0.229 1.057l4.586 4.586c0.286 0.286 0.702 0.361 1.057 0.229 0.13-0.049 0.252-0.124 0.357-0.229 0-0 0-0 0-0l9.708-9.708 9.708 9.708c0 0 0 0 0 0 0.105 0.105 0.227 0.18 0.357 0.229 0.356 0.133 0.771 0.057 1.057-0.229l4.586-4.586c0.286-0.286 0.362-0.702 0.229-1.057-0.049-0.13-0.124-0.252-0.229-0.357z" /></svg>'/*../images/unchecked.png*/);
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+/* RADIO BUTTONS */
+.radio_types {overflow: hidden;height:auto;}
+input[type='radio'] {display: none;}
+label.types { display: block; width: 50%; float: left; text-align:center; -webkit-filter: brightness(0.90) opacity(0.9); filter: brightness(0.90) opacity(0.9); font-size: 45px;}
+label.types img { display:block; width:95%; margin: 0 auto; }
+
+input[type="radio"]:checked + label.types {-webkit-filter: brightness(1) opacity(1); filter: brightness(1) opacity(1);}
+
+/* INPUT TYPE NUMBER */
+.numbers > div {text-align: center;}
+.numbers span {position: relative; display: inline-block; height: 100px; width: 30%; vertical-align: top; font-size: 80px; font-family: bulky; line-height: 100px;}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+input[type=number] {position: relative; width: 30%; height: 100px; text-align: center; font-size: 70px; font-family: bulky; background: transparent; outline: none;  border: 0; color: white;}
+
+label[for='winPoints'] {display: block; text-align: center; margin-bottom: 50px;}
+
+span[data-step] {color: white;}

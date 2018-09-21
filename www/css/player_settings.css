@@ -1,0 +1,121 @@
+.group {
+	position: relative;
+	display: block;
+	min-height: 200px;
+}
+	
+.player_settings {
+	position: absolute;
+	top: 50px;
+	left: 0;
+	
+	width: 100px;
+	height: 100px;
+	margin: 10px 0 20px;
+	-webkit-transition: all 0.5s ease-in-out;
+	transition: all 0.5s ease-in-out;
+	z-index: 1;
+}
+
+.player_settings:nth-of-type(even) {
+	left: 120px;
+}
+		
+.player_settings.drop {
+	height: 500px;
+	width: 100%;
+	position: relative;
+	z-index: 0;
+}
+
+.player_settings.drop:nth-of-type(even) {
+	top: 0;
+	left: 0;
+}	
+		
+.menu_button {
+	display: inline-block;
+	font-family: sans-serif;
+	width: 100px;
+	height: 100px;
+	line-height: 100px;
+	background-color: black;
+	border-radius: 50%;
+	color: #383838;
+	text-align: center;
+	cursor: pointer;
+	
+	position: relative;
+	left: 0;
+	top: 0;
+	-webkit-transform: translateX(0); transform: translateX(0);
+	
+	-webkit-transition: all 0.5s ease-in-out;
+	transition: all 0.5s ease-in-out;
+}
+
+.menu_button:after {
+	font-size: 1.5em;
+	
+	display: block;
+	width: 100px;
+	height: 100px;
+	line-height: 100px;
+	background-color: white;
+	border-radius: 50%;
+}
+
+.menu_button.colors:after {
+	content: "\2710";
+}
+
+.drop .menu_button, .drop .menu_button + ul {
+	left: 50%;
+	top: 200px;
+	-webkit-transform: translateX(-50%); transform: translateX(-50%);
+}
+
+.menu_button + ul {
+	position: absolute;
+	left: 0;
+	top: 0;
+	-webkit-transform: translateX(0); transform: translateX(0);
+	z-index: -1;
+	
+	width: 100px; height: 100px;
+	
+	-webkit-transition: all 0.5s ease-in-out;
+	transition: all 0.5s ease-in-out;
+}
+
+.menu_button + ul li {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: inline-block;
+	width: 100px;
+	height: 100px;
+	list-style: none;
+	border-radius: 50%;
+	-webkit-transition: -webkit-transform 600ms cubic-bezier(1, 0, 0.755, 1.470);
+	transition: transform 600ms cubic-bezier(1, 0, 0.755, 1.470);
+	color: black;
+	line-height: 100px;
+	text-align: center;
+}
+
+/* list items layout in circle */
+.drop .menu_button + ul li:nth-child(1) {-webkit-transform: rotate(-45deg) translate(150px) rotate(45deg); transform: rotate(-45deg) translate(150px) rotate(45deg);}
+.drop .menu_button + ul li:nth-child(2) {-webkit-transform: translate(150px); transform: translate(150px);}
+.drop .menu_button + ul li:nth-child(3) {-webkit-transform: rotate(45deg) translate(150px) rotate(-45deg); transform: rotate(45deg) translate(150px) rotate(-45deg);}
+.drop .menu_button + ul li:nth-child(4) {-webkit-transform: rotate(90deg) translate(150px) rotate(-90deg); transform: rotate(90deg) translate(150px) rotate(-90deg);}
+.drop .menu_button + ul li:nth-child(5) {-webkit-transform: rotate(135deg) translate(150px) rotate(-135deg); transform: rotate(135deg) translate(150px) rotate(-135deg);}
+.drop .menu_button + ul li:nth-child(6) {-webkit-transform: rotate(180deg) translate(150px) rotate(-180deg); transform: rotate(180deg) translate(150px) rotate(-180deg);}
+.drop .menu_button + ul li:nth-child(7) {-webkit-transform: rotate(225deg) translate(150px) rotate(-225deg); transform: rotate(225deg) translate(150px) rotate(-225deg);}
+.drop .menu_button + ul li:nth-child(8) {-webkit-transform: rotate(270deg) translate(150px) rotate(-270deg); transform: rotate(270deg) translate(150px) rotate(-270deg);}
+
+/* selected pallete item */
+.menu_button + ul li.selected {
+	z-index: 1;
+	-webkit-transform: scale(1.2); transform: scale(1.2);
+}

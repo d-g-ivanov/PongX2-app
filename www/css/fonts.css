@@ -1,0 +1,24 @@
+@font-face {
+    font-family: dpcomic;
+    src: url("../fonts/dpcomic.ttf");
+}
+
+@font-face {
+    font-family: bulky;
+    src: url("../fonts/bulky.otf");
+}
+
+@font-face {
+    font-family: kongtext;
+    src: url("../fonts/kongtext.ttf");
+}
+
+@font-face {
+    font-family: bit;
+    src: url("../fonts/BIT.otf");
+}
+
+@font-face {
+    font-family: chawp;
+    src: url("../fonts/chawp.otf");
+}
